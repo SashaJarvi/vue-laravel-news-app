@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Article extends Model
 {
@@ -11,12 +12,14 @@ class Article extends Model
 
     protected $fillable = ['title', 'body', 'img', 'slug'];
 
+    public $dates = ['published_at'];
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function states()
+    public function state()
     {
         return $this->hasOne(State::class);
     }
@@ -24,5 +27,20 @@ class Article extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function getBodyPreview()
+    {
+        return Str::limit($this->body, 100);
+    }
+
+    public function createdAtForHumans()
+    {
+        return $this->published_at->diffForHumans();
+    }
+
+    public function scopeLastLimit($query, $limit)
+    {
+        return $query->with('state', 'tags')->orderBy('created_at', 'desc')->take($limit)->get();
     }
 }

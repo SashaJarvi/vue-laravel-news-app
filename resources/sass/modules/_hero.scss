@@ -1,0 +1,36 @@
+.hero {
+    position: relative;
+    height: 670px;
+    z-index: 1;
+
+    &__content {
+        &-tag {
+            display: block;
+            margin-bottom: 15px;
+
+            a {
+                display: inline-block;
+                padding: 3px 10px;
+                color: $color-white;
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                background-color: $main-blue;
+                border-radius: 2px;
+            }
+        }
+
+        h2 {
+            a {
+                display: inline-block;
+                margin-bottom: 0;
+                padding: 12px 20px 5px;
+                color: $color-white;
+                font-size: 40px;
+                text-transform: uppercase;
+                background-color: rgba(0,0,0,0.5);
+                border-radius: 0;
+            }
+        }
+    }
+}
