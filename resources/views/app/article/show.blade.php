@@ -3,19 +3,7 @@
     <div id="app">
         <div class="row mt-5">
             <div class="col-12 p-3">
-                <img src="{{$article->img}}" alt="" class="border rounded mx-auto d-block">
-                <h5 class="mt-5">{{$article->title}}</h5>
-                <div>
-                    @foreach($article->tags as $tag)
-                        @if($loop->last)
-                            <span class="tag">{{$tag->label}}</span>
-                        @else
-                            <span class="tag">{{$tag->label}} |</span>
-                        @endif
-                    @endforeach
-                </div>
-                <p class="card-text">{{$article->body}}</p>
-                <p>Опубликовано: <i>{{$article->createdAtForHumans()}}</i></p>
+                <article-component></article-component>
             </div>
         </div>
 
@@ -52,4 +40,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('vue')
+    <script src="{{ mix('/js/app.js') }}"></script>
 @endsection
