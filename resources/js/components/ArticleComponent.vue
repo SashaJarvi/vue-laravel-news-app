@@ -20,14 +20,13 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex';
-
 export default {
     name: 'ArticleComponent',
     components: {},
-
     computed: {
-        ...mapState(['article']),
+        article() {
+            return this.$store.state.articleModule.article;
+        },
         tagsLength() {
             return this.article.tags.length;
         }

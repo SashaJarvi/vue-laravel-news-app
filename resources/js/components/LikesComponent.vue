@@ -13,12 +13,18 @@ import {mapState, mapGetters} from 'vuex';
 export default {
     name: 'LikesComponent',
     computed: {
-        ...mapState(['slug', 'likeIt']),
-        ...mapGetters(['articleLikes']),
+        ...mapState(['slug', 'articleModule/likeIt']),
+        ...mapGetters('articleModule', ['articleLikes']),
+        slug() {
+            return this.$store.state.slug;
+        },
+        likeIt() {
+            return this.$store.state.articleModule.likeIt;
+        },
     },
     methods: {
         addLike() {
-            this.$store.dispatch('likesIncrement', {
+            this.$store.dispatch('articleModule/likesIncrement', {
                 slug: this.slug,
                 increment: this.likeIt
             });

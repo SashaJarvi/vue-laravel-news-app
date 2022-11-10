@@ -8,7 +8,7 @@ import { mapGetters } from 'vuex';
 export default {
     name: 'ViewsComponent',
     computed: {
-        ...mapGetters(['articleViews'])
+        ...mapGetters('articleModule', ['articleViews'])
     }
 };
 </script>

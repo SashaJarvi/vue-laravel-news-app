@@ -1,7 +1,9 @@
 @extends('layouts.app')
+
 @section('hero')
     @include('app.partials.hero')
 @endsection
+
 @section('content')
     <div class="row mt-5">
         @foreach($articles as $article)
