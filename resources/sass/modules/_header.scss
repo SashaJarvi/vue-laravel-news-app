@@ -1,0 +1,8 @@
+.menu-link {
+    border-bottom: 1px solid transparent;
+
+    &__active {
+        color: $main-blue !important;
+        border-bottom: 1px solid $main-blue;
+    }
+}
